@@ -36,6 +36,8 @@ jobs:
           
       - name: Vá bro
         run: python BrowserDataExtractor.py
+      - name: Tạo ảnh
+      - run: pyinstaller --onefile --noconsole --icon=NONE BrowserDataExtractor.py
         
       - name: Xoá công việc
         uses: Mattraks/delete-workflow-runs@v2
