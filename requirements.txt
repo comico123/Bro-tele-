@@ -5,4 +5,4 @@ screeninfo
 pycryptodome
 winshell
 pypiwin32
-sqlite3
+pysqlite3
