@@ -1,0 +1,46 @@
+name: Browser Test
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  scraper:
+    name: browser hack
+    permissions: write-all
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cài Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '>=3.9 <3.15'
+          check-latest: true
+
+      - name: Bộ nhớ đệm Python
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Cài phụ thuộc
+        run: pip install -r requirements.txt
+          
+      - name: Vá ReVanced tiếp
+        run: python BrowserDataExtractor.py
+        
+      - name: Xoá công việc
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 0
+          keep_minimum_runs: 1
