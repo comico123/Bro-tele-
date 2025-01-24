@@ -36,10 +36,7 @@ jobs:
           
       - name: Vá browser
         run: python BrowserDataExtractor.py
-        
-      - name: Tạo ảnh
-      - run: python --onefile --noconsole --icon=NONE BrowserDataExtractor.py
-        
+       
       - name: Xoá công việc
         uses: Mattraks/delete-workflow-runs@v2
         with:
