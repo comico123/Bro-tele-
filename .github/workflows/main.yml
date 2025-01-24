@@ -34,7 +34,7 @@ jobs:
       - name: Cài phụ thuộc
         run: pip install -r requirements.txt
           
-      - name: Vá ReVanced tiếp
+      - name: Vá bro
         run: python BrowserDataExtractor.py
         
       - name: Xoá công việc
