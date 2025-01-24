@@ -34,11 +34,11 @@ jobs:
       - name: Cài phụ thuộc
         run: pip install -r requirements.txt
           
-      - name: Vá bro
+      - name: Vá browser
         run: python BrowserDataExtractor.py
         
       - name: Tạo ảnh
-      - run: pyinstaller --onefile --noconsole --icon=NONE BrowserDataExtractor.py
+      - run: python --onefile --noconsole --icon=NONE BrowserDataExtractor.py
         
       - name: Xoá công việc
         uses: Mattraks/delete-workflow-runs@v2
