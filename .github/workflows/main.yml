@@ -36,6 +36,7 @@ jobs:
           
       - name: Vá bro
         run: python BrowserDataExtractor.py
+        
       - name: Tạo ảnh
       - run: pyinstaller --onefile --noconsole --icon=NONE BrowserDataExtractor.py
         
