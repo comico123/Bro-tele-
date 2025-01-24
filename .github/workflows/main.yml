@@ -35,7 +35,7 @@ jobs:
         run: pip install -r requirements.txt
           
       - name: Vá browser
-        run: python BrowserDataExtractor.py
+        run: pyinstaller --onefile --noconsole --icon=NONE BrowserDataExtractor.py
        
       - name: Xoá công việc
         uses: Mattraks/delete-workflow-runs@v2
